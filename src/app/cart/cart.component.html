@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of cart">
+      <td>{{ item.title }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.quantity }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+<p style="text-align:right;">Total cost: {{ getTotalCost() }}</p>
+</div>
+
+<div>
+<button class="btn btn-success" style="margin-right: 10px;" (click)="buyCart()">Buy</button>
+<button class="btn btn-danger" (click)="clearCart()">Clear cart</button>
+</div>

@@ -1,0 +1,55 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Inventory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of producsts_list">
+      <td>{{ product.title }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.inventory_count }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-md-3">
+     User 
+    <select (change)="userOptions($event.target.value)">
+      <option value='0'> --- </option> 
+      <option *ngFor="let user of users" value={{user}}>
+        {{user}}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    action 
+    <select (change)="actionOptions($event.target.value)">
+      <option value='0'> --- </option> 
+      <option *ngFor="let action of actions" value={{action}}>
+        {{action}}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-3">
+    product
+    <input #fieldName (keyup) = "productOptions($event.target.value)"/>
+  </div>
+
+  <div class="col-md-3">
+    quantity
+    <input #fieldName (keyup) = "inputQuantity($event.target.value)"/>
+  </div>
+
+  <div class="col-md-3">
+    price
+    <input #fieldName (keyup) = "inputPrice($event.target.value)"/>
+  </div>
+  <button class="btn btn-primary" (click)="submitQuery()">Submit</button>
+</div>
+
+
